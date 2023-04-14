@@ -1,0 +1,92 @@
+﻿/* Change background color of header */
+header {
+    background-color: #F0ECEC;
+}
+
+    /* Change font color of logo */
+    header a p {
+        color: #6F8D9E;
+    }
+
+    /* Change background color and border of search input */
+    header form input[type="search"] {
+        background-color: #F6F3F3;
+        border-color: #C6D2D6;
+    }
+
+    /* Change background color and font color of login and sign-up buttons */
+    header .btn-outline-secondary,
+    header .btn-primary {
+        background-color: #C6D2D6;
+        color: #fff;
+        border-color: #C6D2D6;
+    }
+
+    /* Change background color and font color of cart button */
+    header .btn-outline-primary {
+        background-color: #F6F3F3;
+        color: #6F8D9E;
+        border-color: #F6F3F3;
+    }
+
+/* Change font color of nav links */
+.col-2 .nav-link {
+    color: #6F8D9E;
+}
+
+    .col-2 .nav-link:hover {
+        color: #C6D2D6;
+    }
+
+/* Change font color of carousel control icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    color: #6F8D9E;
+}
+
+/* Change background color and font color of active carousel item indicator */
+.carousel-indicators .active {
+    background-color: #C6D2D6;
+    border-color: #C6D2D6;
+}
+
+/* Change border color and font color of inactive carousel item indicators */
+.carousel-indicators li:not(.active) {
+    border-color: #C6D2D6;
+    color: #C6D2D6;
+}
+
+/* Change background color of carousel images */
+.carousel-item img {
+    background-color: #F6F3F3;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.carousel-item img {
+    height: 500px;
+}
+
+body {
+    padding-top: 80px; /* add padding to the top of the body to account for the fixed header */
+}
+
+
+.bi-cart {
+    color: #fff;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+
+h5:hover {
+    color: red;
+    cursor: pointer;
+}
+    
