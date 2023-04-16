@@ -21,9 +21,23 @@ namespace TechStoreMVC.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            Mobile mobile = await _mobileRepository.GetMobileById(id);
+            Mobile mobile = await _mobileRepository.GetByIdAsyncNoTracking(id);
             return View(mobile);
         }
+
+        //get 
+
+        public IActionResult Create() 
+        {
+            return View();
+        }
+
+        //[HttpPost]
+
+        //public async Task<IActionResult>Create(Mobile mobile)
+        //{
+
+        //}
 
     }
 }

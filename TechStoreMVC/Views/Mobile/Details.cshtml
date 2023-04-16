@@ -15,6 +15,7 @@
                 <p>@Html.DisplayNameFor(m=>m.Name)  ------- @Model.Name</p>
                 <p>@Html.DisplayNameFor(m=>m.ScreenSize)  ------- @Model.ScreenSize</p>
                 <p>@Html.DisplayNameFor(m=>m.OperatingSystem)--------@Model.OperatingSystem</p>
+                <p>Available in : @Model.Address.StreetAddress</p>
                 <h5>@Html.DisplayNameFor(m=>m.Price)</h5>
                 <span>@Model.Price</span>
             </ul>
