@@ -17,5 +17,12 @@ namespace TechStoreMVC.Controllers
             IEnumerable <Laptop> laptops= await _laptopRepository.GetLaptop();
             return View(laptops);  
         }
+
+
+        public async Task<IActionResult>Details(int id)
+        {
+            Laptop laptop = await _laptopRepository.GetLaptopById(id);
+            return View(laptop);
+        }
     }
 }

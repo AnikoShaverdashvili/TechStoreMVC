@@ -1,0 +1,25 @@
+﻿@model Mobile
+
+<div class="container col-10">
+    <h1>@Model.Name</h1>
+    <p>@Model.Description</p>
+    <small class="mb-3">@Model.MobileCategory</small>
+
+    <div class="row">
+        <div class="col-md-4 mt-3">
+            <img class="img-fluid" src="@Model.Image" alt="@Model.Name" style="width:150px">
+        </div>
+        <div class="col-md-8">
+
+            <ul>
+                <p>@Html.DisplayNameFor(m=>m.Name)  ------- @Model.Name</p>
+                <p>@Html.DisplayNameFor(m=>m.ScreenSize)  ------- @Model.ScreenSize</p>
+                <p>@Html.DisplayNameFor(m=>m.OperatingSystem)--------@Model.OperatingSystem</p>
+                <h5>@Html.DisplayNameFor(m=>m.Price)</h5>
+                <span>@Model.Price</span>
+            </ul>
+        </div>
+    </div>
+    <a class="btn btn-secondary" asp-controller="Mobile" asp-action="Index">Back to mobile list</a>
+
+</div>

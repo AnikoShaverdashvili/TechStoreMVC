@@ -1,4 +1,4 @@
-﻿@model Ienumerable<Laptop>
+﻿@model IEnumerable<Laptop>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -18,7 +18,7 @@
                         <p class="card-text">@laptop.Price</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group justify-content-center">
-                                <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Details" asp-route-id="@laptop.Id">View</a>
+                                <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop"asp-action="Details" asp-route-id="@laptop.Id">View</a>
                                 <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-controller="Laptop" asp-route-id="@laptop.Id">Edit</a>
                                 <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Delete" asp-route-id="@laptop.Id">Delete</a>
                                 <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Add" asp-route-id="@laptop.Id">Add</a>

@@ -13,10 +13,17 @@ namespace TechStoreMVC.Controllers
             _mobileRepository = mobileRepository;
         }
 
-        public async Task <IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             IEnumerable<Mobile> mobiles = await _mobileRepository.GetAllMobile();
             return View(mobiles);
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            Mobile mobile = await _mobileRepository.GetMobileById(id);
+            return View(mobile);
+        }
+
     }
 }
