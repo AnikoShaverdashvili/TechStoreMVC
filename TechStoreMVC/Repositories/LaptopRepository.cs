@@ -28,18 +28,22 @@ namespace TechStoreMVC.Repositories
 
         public async Task<Laptop> GetByIdAsyncNoTracking(int id)
         {
-            return await _context.Laptops.Include(a=>a.Address).FirstOrDefaultAsync();
+            return await _context.Laptops.Include(i => i.Address).AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
         }
+
+        public async Task<Laptop> GetLaptopById(int id)
+        {
+            return await _context.Laptops.Include(i => i.Address).FirstOrDefaultAsync();
+        }
+
+
 
         public async Task<IEnumerable<Laptop>> GetLaptop()
         {
             return await _context.Laptops.ToListAsync();
         }
 
-        public async Task<Laptop> GetLaptopById(int id)
-        {
-            return await _context.Laptops.Where(l => l.Id == id).FirstOrDefaultAsync();
-        }
+      
 
         public bool Save()
         {

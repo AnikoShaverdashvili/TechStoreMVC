@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using TechStoreMVC.Data;
+using TechStoreMVC.Helpers;
 using TechStoreMVC.Interfaces;
 using TechStoreMVC.Repositories;
+using TechStoreMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 builder.Services.AddScoped<IMobileRepository, MobileRepository>();
 builder.Services.AddScoped<ILaptopRepository, LaptopRepository>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+
 
 var app = builder.Build();
 

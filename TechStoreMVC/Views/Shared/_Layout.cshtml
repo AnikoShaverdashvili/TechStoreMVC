@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TechStoreMVC</title>
+    <title>@ViewData["Title"] Store</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TechStoreMVC.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" /> 
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 <body>
@@ -56,15 +57,12 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Laptop" asp-action="Index">Laptop</a>
                     </li>
-
                 </ul>
             </div>
-           
+            <partial name="_Notification" />
 
             @RenderBody()
-
             </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - TechStoreMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

@@ -33,12 +33,12 @@ namespace TechStoreMVC.Repositories
 
         public async Task<Mobile> GetByIdAsyncNoTracking(int id)
         {
-            return await _context.Mobiles.Include(i => i.Address).FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.Mobiles.Include(i => i.Address).AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<Mobile> GetMobileById(int id)
         {
-            return await _context.Mobiles.Where(m => m.Id == id).FirstOrDefaultAsync();
+            return await _context.Mobiles.Include(i => i.Address).FirstOrDefaultAsync();
         }
 
         public bool Save()

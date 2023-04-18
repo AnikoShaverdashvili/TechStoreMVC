@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace TechStoreMVC.Models
 {
@@ -6,8 +7,8 @@ namespace TechStoreMVC.Models
     {
         [Key]
         public int Id { get; set; }
+        [DisplayName("Address")]
         public string StreetAddress { get; set; }
-        public string City { get; set; }
         public string Country { get; set; }
     }
 }

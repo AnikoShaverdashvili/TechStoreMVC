@@ -1,0 +1,103 @@
+﻿@using TechStoreMVC.Data.Enum;
+@using TechStoreMVC.ViewModel;
+@model CreateLaptopViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="container col-10">
+
+    <form method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="border p-1 mt-1">
+            <div class="row pb-1">
+                <h3 class="text-secondary">Create Laptop</h3>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Mobile Name..." />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter Mobile Description..."></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.Country"></label>
+                <input asp-for="Address.Country" class="form-control" />
+                <span asp-validation-for="Address.Country"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.StreetAddress"></label>
+                <input asp-for="Address.StreetAddress" class="form-control" />
+                <span asp-validation-for="Address.StreetAddress"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Processor"></label>
+                <input asp-for="Processor" class="form-control" />
+                <span asp-validation-for="Processor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GraphicsCard"></label>
+                <input asp-for="GraphicsCard" class="form-control" />
+                <span asp-validation-for="GraphicsCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RAM"></label>
+                <input asp-for="RAM" class="form-control" type="number" min="1" step="1" />
+                <span asp-validation-for="RAM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Storage"></label>
+                <input asp-for="Storage" class="form-control" type="number" min="1" step="1" />
+                <span asp-validation-for="Storage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperatingSystem"></label>
+                <input asp-for="OperatingSystem" class="form-control" />
+                <span asp-validation-for="OperatingSystem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LaptopCategory"></label>
+                <select asp-for="LaptopCategory" class="form-control" asp-items="Html.GetEnumSelectList<LaptopCategory>()">
+                    <option value="">--Select a Category--</option>
+                </select>
+                <span asp-validation-for="LaptopCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplaySize"></label>
+                <input asp-for="DisplaySize" class="form-control" />
+                <span asp-validation-for="DisplaySize" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Image"></label>
+                <input asp-for="Image" type="file" class="form-control" placeholder=" image">
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
