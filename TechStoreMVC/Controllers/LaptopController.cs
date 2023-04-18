@@ -167,5 +167,26 @@ namespace TechStoreMVC.Controllers
             }
         }
 
+        public async Task<IActionResult>Delete(int id)
+        {
+           var laptop= await _laptopRepository.GetLaptopById(id);
+            if(laptop == null)
+            {
+                return View("Error");
+            }
+            return View(laptop);    
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult>DeleteLaptop(Laptop laptop)
+        {
+           if (laptop == null)
+            {
+                return View("Error");
+            }
+           _laptopRepository.Delete(laptop);
+            return RedirectToAction("Index");
+        }
+
     }
 }

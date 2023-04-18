@@ -1,0 +1,70 @@
+﻿
+@using TechStoreMVC.Data.Enum;
+@model Laptop
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container col-10">
+    <form method="post" enctype="multipart/form-data" asp-controller="Laptop" asp-action="Delete">
+        
+        <div class="border p-1 mt-1">
+            <div class="row pb-1">
+                <h3 class="text-secondary">Create Laptop</h3>
+            </div>
+            <input hidden asp-for="Id"/>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Mobile Name..." disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter Mobile Description..." disabled></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.Country"></label>
+                <input asp-for="Address.Country" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.StreetAddress"></label>
+                <input asp-for="Address.StreetAddress" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Processor"></label>
+                <input asp-for="Processor" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="GraphicsCard"></label>
+                <input asp-for="GraphicsCard" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="RAM"></label>
+                <input asp-for="RAM" class="form-control" type="number" min="1" step="1" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Storage"></label>
+                <input asp-for="Storage" class="form-control" type="number" min="1" step="1" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="OperatingSystem"></label>
+                <input asp-for="OperatingSystem" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="LaptopCategory"></label>
+                <select asp-for="LaptopCategory" class="form-control" disabled>
+                    <option value="">--Select a Category--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplaySize"></label>
+                <input asp-for="DisplaySize" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control" disabled />
+            </div>
+            <button type="submit" class="btn btn-danger mt-2">Delete</button>
+        </div>
+    </form>
+</div>

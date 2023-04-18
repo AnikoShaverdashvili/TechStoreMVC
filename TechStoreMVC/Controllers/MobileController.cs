@@ -98,7 +98,7 @@ namespace TechStoreMVC.Controllers
                 OperatingSystem = mobile.OperatingSystem,
                 ScreenSize = mobile.ScreenSize,
                 MobileCategory = mobile.MobileCategory,
-                Price=mobile.Price,
+                Price = mobile.Price,
             };
             return View(mobVm);
 
@@ -143,14 +143,34 @@ namespace TechStoreMVC.Controllers
                     Price = mobVm.Price,
                 };
                 _mobileRepository.Update(mobile);
+                TempData["success"] = "Mobile edited successfully";
                 return RedirectToAction("Index");
             }
             else
             {
                 return View(mobVm);
             }
+        }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var mobile = await _mobileRepository.GetMobileById(id);
+            if (mobile == null)
+            {
+                return View("Error");
+            }
+            return View(mobile);
+        }
 
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteMobile(Mobile mobile)
+        {
+            if (mobile == null)
+            {
+                return View("Error");
+            }
+            _mobileRepository.Delete(mobile);
+            return RedirectToAction("Index");
         }
 
 
