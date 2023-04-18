@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@if (Model.Mobiles.Count > 0)
+{
+    <div class="album py-5 bg-light col-10">
+        <div class="container">
+            <div class="row">
+
+                @foreach (var mobile in Model.Mobiles)
+                {
+                    <div class="card mb-4 box-shadow m-3" style="max-width:250px;">
+                        <img class="card-img-top mt-1" src="@mobile.Image" height="150" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@mobile.Name</h5>
+                            <p class="card-text">@mobile.Price</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group justify-content-center">
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Mobile" asp-action="Details" asp-route-id="@mobile.Id">View</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-controller="Mobile" asp-route-id="@mobile.Id">Edit</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Mobile" asp-action="Delete" asp-route-id="@mobile.Id">Delete</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Mobile" asp-action="Add" asp-route-id="@mobile.Id">Add</a>
+                                </div>
+                            </div>
+                            <small class="text-muted text-end">@mobile.MobileCategory</small>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Laptops.Count > 0)
+{
+    <div class="album py-5 bg-light col-10">
+        <div class="container">
+            <div class="row">
+
+                @foreach (var laptop in Model.Laptops)
+                {
+                    <div class="card mb-4 box-shadow m-3" style="max-width:250px;">
+                        <img class="card-img-top mt-1" src="@laptop.Image" height="150" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@laptop.Name</h5>
+                            <p class="card-text">@laptop.Price</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group justify-content-center">
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Details" asp-route-id="@laptop.Id">View</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-controller="Laptop" asp-route-id="@laptop.Id">Edit</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Delete" asp-route-id="@laptop.Id">Delete</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Add" asp-route-id="@laptop.Id">Add</a>
+                                </div>
+                            </div>
+                            <small class="text-muted text-end">@laptop.LaptopCategory</small>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}
+@if (Model.Mobiles.Count == 0 && Model.Laptops.Count == 0)
+{
+     <div class="album py-5 bg-light col-10">
+
+        <h2 class="text-danger">No results found.</h2>
+
+     </div>
+    
+}
