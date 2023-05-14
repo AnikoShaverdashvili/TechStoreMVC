@@ -75,6 +75,7 @@ header {
 
 body {
     padding-top: 80px; /* add padding to the top of the body to account for the fixed header */
+    overflow-x:hidden;
 }
 
 

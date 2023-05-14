@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using TechStoreMVC.Data.Enum;
+using System.ComponentModel;
 
 namespace TechStoreMVC.Models
 {
@@ -21,8 +22,12 @@ namespace TechStoreMVC.Models
         public string GraphicsCard { get; set; }
         public int RAM { get; set; }
         public int Storage { get; set; }
+        [DisplayName("Operating System")]
         public string OperatingSystem { get; set; }
         public double DisplaySize { get; set; }
         public double Price { get; set; }
+
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
