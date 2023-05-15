@@ -9,6 +9,11 @@
 
 <div class="album py-5 bg-light col-10">
     <div class="container">
+        @if (User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
+        {
+            <a class="btn btn-outline-primary" asp-action="Create" asp-controller="Laptop">+ Create Laptop</a>
+        }
+        
         <div class="row">
 
             @foreach (var laptop in Model)
@@ -20,10 +25,22 @@
                         <p class="card-text">@laptop.Price</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group justify-content-center">
-                                <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Details" asp-route-id="@laptop.Id">View</a>
-                                <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-controller="Laptop" asp-route-id="@laptop.Id">Edit</a>
-                                <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Delete" asp-route-id="@laptop.Id">Delete</a>
-                                <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Add" asp-route-id="@laptop.Id">Add</a>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
+                                {
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Details" asp-route-id="@laptop.Id">View</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-controller="Laptop" asp-route-id="@laptop.Id">Edit</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Delete" asp-route-id="@laptop.Id">Delete</a>
+                                }
+                                else if (User.Identity.IsAuthenticated && User.IsInRole("user"))
+                                {
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Details" asp-route-id="@laptop.Id">View</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Add" asp-route-id="@laptop.Id">Add</a>
+
+                                }
+                                else
+                                {
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Laptop" asp-action="Details" asp-route-id="@laptop.Id">View</a>
+                                }
                             </div>
                         </div>
                         <small class="text-muted text-end">@laptop.LaptopCategory</small>

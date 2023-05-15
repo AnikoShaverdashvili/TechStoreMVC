@@ -73,12 +73,12 @@ using (var scope = app.Services.CreateScope())
 
         if (result.Succeeded)
         {
-            if (await roleManager.FindByNameAsync("Admin") == null)
+            if (await roleManager.FindByNameAsync("ADMIN") == null)
             {
-                await roleManager.CreateAsync(new IdentityRole("Admin"));
+                await roleManager.CreateAsync(new IdentityRole("ADMIN"));
             }
 
-            await userManager.AddToRoleAsync(user, "Admin");
+            await userManager.AddToRoleAsync(user, "ADMIN");
         }
     }
 }
