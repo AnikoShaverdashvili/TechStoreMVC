@@ -26,12 +26,11 @@ builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection(
 
 builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie();
-
-
 
 var app = builder.Build();
 
@@ -55,4 +54,34 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Create admin user and assign "Admin" role
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    var userManager = serviceProvider.GetService<UserManager<AppUser>>();
+    var roleManager = serviceProvider.GetService<RoleManager<IdentityRole>>();
+
+    if (userManager.FindByEmailAsync("admin@example.com").Result == null)
+    {
+        var user = new AppUser
+        {
+            UserName = "admin@example.com",
+            Email = "admin@example.com"
+        };
+
+        var result = await userManager.CreateAsync(user, "MyAdminPassword1!");
+
+        if (result.Succeeded)
+        {
+            if (await roleManager.FindByNameAsync("Admin") == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            await userManager.AddToRoleAsync(user, "Admin");
+        }
+    }
+}
+
 app.Run();
+
