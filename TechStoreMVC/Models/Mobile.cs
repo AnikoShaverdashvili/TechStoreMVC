@@ -41,9 +41,10 @@ namespace TechStoreMVC.Models
         [Display(Name = "Price")]
         public double Price { get; set; }
 
+        public string? AppUserId { get; set; }
 
-        public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
+        [ForeignKey("AppUserId")]
+        public AppUser? AppUser { get; set; }
 
     }
 }

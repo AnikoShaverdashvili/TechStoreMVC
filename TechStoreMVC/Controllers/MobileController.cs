@@ -67,9 +67,6 @@ namespace TechStoreMVC.Controllers
                 _mobileRepository.Add(mobile);
                 TempData["success"] = "Mobile created successfully";
                 return RedirectToAction("Index");
-
-
-
             }
             else
             {
@@ -78,6 +75,7 @@ namespace TechStoreMVC.Controllers
             }
             return View(mobVm);
         }
+
 
         public async Task<IActionResult> Edit(int id)
         {

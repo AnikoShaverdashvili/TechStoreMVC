@@ -188,8 +188,7 @@ namespace TechStoreMVC.Migrations
                     OperatingSystem = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DisplaySize = table.Column<double>(type: "float", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    AppUserId = table.Column<int>(type: "int", nullable: false),
-                    AppUserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -201,8 +200,8 @@ namespace TechStoreMVC.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Laptops_AspNetUsers_AppUserId1",
-                        column: x => x.AppUserId1,
+                        name: "FK_Laptops_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
@@ -223,8 +222,7 @@ namespace TechStoreMVC.Migrations
                     ScreenSize = table.Column<double>(type: "float", nullable: false),
                     OperatingSystem = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    AppUserId = table.Column<int>(type: "int", nullable: false),
-                    AppUserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -236,8 +234,8 @@ namespace TechStoreMVC.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Mobiles_AspNetUsers_AppUserId1",
-                        column: x => x.AppUserId1,
+                        name: "FK_Mobiles_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
@@ -287,9 +285,9 @@ namespace TechStoreMVC.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Laptops_AppUserId1",
+                name: "IX_Laptops_AppUserId",
                 table: "Laptops",
-                column: "AppUserId1");
+                column: "AppUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Mobiles_AddressId",
@@ -297,9 +295,9 @@ namespace TechStoreMVC.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Mobiles_AppUserId1",
+                name: "IX_Mobiles_AppUserId",
                 table: "Mobiles",
-                column: "AppUserId1");
+                column: "AppUserId");
         }
 
         /// <inheritdoc />

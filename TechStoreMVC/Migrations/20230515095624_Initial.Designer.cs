@@ -12,8 +12,8 @@ using TechStoreMVC.Data;
 namespace TechStoreMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230514164827_test")]
-    partial class test
+    [Migration("20230515095624_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -255,10 +255,7 @@ namespace TechStoreMVC.Migrations
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AppUserId1")
+                    b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
@@ -304,7 +301,7 @@ namespace TechStoreMVC.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.HasIndex("AppUserId1");
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Laptops");
                 });
@@ -320,10 +317,7 @@ namespace TechStoreMVC.Migrations
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AppUserId1")
+                    b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Brand")
@@ -363,7 +357,7 @@ namespace TechStoreMVC.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.HasIndex("AppUserId1");
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Mobiles");
                 });
@@ -429,7 +423,7 @@ namespace TechStoreMVC.Migrations
 
                     b.HasOne("TechStoreMVC.Models.AppUser", "AppUser")
                         .WithMany("Laptops")
-                        .HasForeignKey("AppUserId1");
+                        .HasForeignKey("AppUserId");
 
                     b.Navigation("Address");
 
@@ -446,7 +440,7 @@ namespace TechStoreMVC.Migrations
 
                     b.HasOne("TechStoreMVC.Models.AppUser", "AppUser")
                         .WithMany("Mobiles")
-                        .HasForeignKey("AppUserId1");
+                        .HasForeignKey("AppUserId");
 
                     b.Navigation("Address");
 

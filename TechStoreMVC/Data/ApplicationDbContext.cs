@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TechStoreMVC.Models;
 
@@ -13,5 +14,7 @@ namespace TechStoreMVC.Data
         public DbSet<Laptop> Laptops { get; set; }
         public DbSet<Address> Addresses { get; set; }
 
+
     }
 }
+ 

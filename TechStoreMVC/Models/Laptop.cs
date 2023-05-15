@@ -27,7 +27,9 @@ namespace TechStoreMVC.Models
         public double DisplaySize { get; set; }
         public double Price { get; set; }
 
-        public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
+        public string? AppUserId { get; set; }
+
+        [ForeignKey("AppUserId")]
+        public AppUser? AppUser { get; set; }
     }
 }
