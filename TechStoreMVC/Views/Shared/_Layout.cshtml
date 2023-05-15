@@ -23,17 +23,46 @@
                 <form class="col-6 mb-3 mb-lg-0 me-lg-3" role="search" asp-action="Search" asp-controller="Home" method="get">
                     <input type="search" name="searchTerm" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search" />
                 </form>
-                <div class="text-end">
-                    <a class="btn btn-outline-secondary me-2" asp-controller="Account" asp-action="Login">
-                        Login
-                    </a>
-                    <a class="btn btn-primary" asp-controller="Account" asp-action="Register">
-                        Sign-up
-                    </a>
-                    <a href="#" class="btn btn-outline-secondary me-2">
-                        <i class="bi bi-cart"></i>
-                    </a>
-                </div>
+
+
+
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div class="text-end d-inline-flex">
+                        <a class="btn btn-outline-secondary me-2" asp-controller="Account" asp-action="Login">
+                            Login
+                        </a>
+                        <a class="btn btn-primary me-2" asp-controller="Account" asp-action="Register">
+                            Sign-up
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary me-2">
+                            <i class="bi bi-cart"></i>
+                        </a>
+                    </div>
+                }
+
+
+                else
+                {
+                    <div class="text-end d-inline-flex">
+                        <a class="btn btn-outline-secondary me-2" asp-controller="Dashboard" asp-action="Index">
+                            Dashboard
+                        </a>
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button type="submit" class="btn btn-danger me-2">Logout</button>
+                        </form>
+
+                        <a href="#" class="btn btn-outline-secondary me-2">
+                            <i class="bi bi-cart"></i>
+                        </a>
+                    </div>
+                }
+
+
+
+                
+                
+
             </div>
         </div>
     </header>

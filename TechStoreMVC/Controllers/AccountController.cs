@@ -114,7 +114,7 @@ namespace TechStoreMVC.Controllers
                 if (addToRoleResult.Succeeded)
                 {
                     TempData["Success"] = "Successfully created new account";
-                    return RedirectToAction("Index", "Mobile");
+                    return RedirectToAction("Login");
                 }
                 else
                 {
@@ -132,12 +132,14 @@ namespace TechStoreMVC.Controllers
         }
 
 
-
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
+
     }
 }
